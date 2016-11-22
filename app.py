@@ -19,7 +19,9 @@ def signUpUser():
 
 @app.route("/test", methods=['POST'])
 def test():
-    test_method()
+    f = open('buttonStatus.txt', 'w')
+    f.write('ON 5 1 ')
+    f.close()
     return render_template('signUp.html')
 
 if __name__ == "__main__":

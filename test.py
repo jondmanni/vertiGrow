@@ -1,8 +1,8 @@
 def test_method():
     r = 0
     try:
-        f = open('text.txt', 'w')
-        f.write('Success!')
+        f = open('buttonStatus.txt', 'w')
+        f.write('ON 5 1 ')
         f.close()
         r = 1
     except:
