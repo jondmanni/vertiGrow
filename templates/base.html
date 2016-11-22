@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="sylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Calvin Web Print</a></h1>
+        </li>
+      </ul>
+    </nav>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      &copy; Copyright 2016 by <a href="http://localhost/">you</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>
