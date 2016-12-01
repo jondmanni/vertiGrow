@@ -17,12 +17,9 @@ def signUpUser():
     password = request.form['password'];
     return json.dumps({'status':'OK','user':user,'pass':password});
 
-@app.route("/test", methods=['POST'])
+@app.route("/test")
 def test():
-    f = open('buttonStatus.txt', 'w')
-    f.write('ON 5 1 ')
-    f.close()
-    return render_template('signUp.html')
+    return test_method();
 
 if __name__ == "__main__":
     app.run()
