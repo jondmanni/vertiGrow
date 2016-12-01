@@ -1,3 +1,49 @@
+html, body {
+	overflow-x: hidden;
+	background-color: lightgrey;
+}
+h2, .full-width {
+  position: relative; /* child absolute */
+  margin: 0 -9999rem;
+  /* add back section padding value */
+  padding: .25rem 9999rem;
+  background: #666;
+  background: rgba(0, 0, 0,.5);
+  color: white;
+  font-size: 1.125rem;
+	font-family: "Arial";
+}
+#titlebar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 15px 15px 15px 15px;
+	color: white;
+	background-color: darkgrey;
+	font-family: "Arial";
+	font-size: 16px;
+}
+#footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	color: white;
+	padding: 15px 15px 15px 15px;
+	background-color: darkgrey;
+	font-family: "Arial";
+	font-size: 16px;
+}
+#content{
+	padding-top: 3.75rem;
+	width: 50%;
+}
+#form_content{
+	background-color: lightblue;
+	padding: 15px 15px 15px 15px;
+}
 .top-bar {
 	margin-bottom: 1em;
 }
