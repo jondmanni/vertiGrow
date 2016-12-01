@@ -2,23 +2,17 @@
 <html>
   <head>
     {% block head %}
-    <link rel="sylesheet" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" media="screen">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <title>{% block title %}{% endblock %} - ENGR-325</title>
     {% endblock %}
   </head>
   <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/test">Calvin Web Print</a></h1>
-        </li>
-      </ul>
-    </nav>
+    <div id="titlebar">ENGR-325 Interface</div>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
       {% block footer %}
-      &copy; Copyright 2016 by <a href="http://localhost/">you</a>.
+      &copy; Copyright 2016 by Jonathan Manni and Peter Oostema.
       {% endblock %}
     </div>
   </body>
