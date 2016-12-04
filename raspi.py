@@ -70,9 +70,13 @@ while(True):
                         status = words[0] + ',' + words[1] + ',' + words[2] + ',' + words[3] + ','
                         file.seek(0)
                         file.write(status)
-                        arduino.write(onLength[i])
-                        arduino.write(words[2])
-                        arduino.write(words[3])
+                        #arduino.write(onLength[i])
+                        #arduino.write(words[2])
+                        #arduino.write(words[3])
+			writeArduino = writeArduino + int(words[3]) * 4
+			writeArduino = writeArduino + int(words[2]) * 8
+			writeArduino = writeArduino 16
+			writeArduino = writeArduino + int(words[0]) * 32
                 #next(file)
                 arduino.write(str(writeArduino))
                 print(writeArduino)
