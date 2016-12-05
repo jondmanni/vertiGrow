@@ -22,7 +22,7 @@ void setup() {
   AFMS.begin();  // create with the default frequency 1.6KHz
   //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
 
-  myMotor->setSpeed(10);  // 10 rpm
+  myMotor->setSpeed(15);  // 10 rpm
 }
 
 void loop() {
@@ -60,13 +60,13 @@ void loop() {
         switch(motor_dir) {
           case 0: // motor turning backward
             if (motor_steps > 0) {
-              myMotor->step(1, BACKWARD, SINGLE);
+              myMotor->step(5, BACKWARD, SINGLE);
               motor_steps--;
             }
             break;
           case 1: // motor turning forward
             if (motor_steps > 0) {
-              myMotor->step(1, FORWARD, SINGLE);
+              myMotor->step(5, FORWARD, SINGLE);
               motor_steps--;
             }
             break;

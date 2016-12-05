@@ -21,6 +21,7 @@ def LED0_update(LED0_time):
         else:
             f.write(lines[0])
             f.write(lines[1])
+        f.write('50,1,0,0,')
         f.close()
         return 1;
     except:
@@ -38,6 +39,7 @@ def LED1_update(LED1_time):
         else:
             f.write(lines[0])
             f.write(lines[1])
+        f.write('\n50,1,0,0,')
         f.close()
         return 1;
     except:
