@@ -2,17 +2,24 @@
 {% block title %}Index{% endblock %}
 {% block head %}
   {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <style type="text/css">
     .important { color: #336699; }
   </style>
+  <script src="static/jquery-3.1.1.min.js"> </script>
+  <script src="static/script.js"></script>
 {% endblock %}
 {% block content %}
   <h1>Click the Button</h1>
   <p class="important">
-    Welcome on my awesome homepage.
-  <form action="/LED0" method="post">
-    Input your time.
-    <input name="LED0_time">
-    <button type="">Update LED0</button>
+    Enter parameters below:
+  <form action="/" method="post" role="form">
+    LED 0:
+    <input name="LED0" id="LED0_time">
+    <button type="button" class="button" id="LED0">Update LED0</button>
+    <br>
+    LED 1:
+    <input name="LED1" id="LED1_time">
+    <button type="button" class="button" id="LED1">Update LED1</button>
   </form>
 {% endblock %}

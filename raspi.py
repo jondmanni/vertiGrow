@@ -2,7 +2,7 @@ import serial
 import time
 import array
 #arduino = serial.Serial('/dev/ttyACM0', 9600)
-arduino = serial.Serial('/dev/tty.usbmodem1421', 9600)
+#arduino = serial.Serial('/dev/tty.usbmodem1421', 9600)
 
 status = ''
 words = ''
@@ -73,12 +73,8 @@ while(True):
                         #arduino.write(onLength[i])
                         #arduino.write(words[2])
                         #arduino.write(words[3])
-			writeArduino = writeArduino + int(words[3]) * 4
-			writeArduino = writeArduino + int(words[2]) * 8
-			writeArduino = writeArduino 16
-			writeArduino = writeArduino + int(words[0]) * 32
                 #next(file)
-                arduino.write(str(writeArduino))
+                #arduino.write(str(writeArduino))
                 print(writeArduino)
                 print(status)
                 i = i + 1

@@ -37,7 +37,7 @@ h2, .full-width {
 	font-size: 16px;
 }
 #content{
-	padding-top: 3.75rem;
+	padding-top: 3.25rem;
 	width: 50%;
 }
 #form_content{
@@ -54,4 +54,27 @@ h1 {
 a {
   color: red;
   font-size: 16px;
+}
+.button {
+    background-color: #5DADE2; /* Blue */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    float: center;
+}
+.button:hover {
+    background-color: #2E86C1;
+}
+.button:disabled {
+    background-color: #AED6F1;
+		cursor: default;
+}
+input {
+    width: 10%;
+		font-size: 16px;
+		padding: 12px 12px 12px 12px;
 }
