@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import json
-from test import test_method, LED0_update, LED1_update
+from test import test_method, LED0_update, LED1_update, MOTOR_update
 app = Flask(__name__)
 
 @app.route("/")
@@ -22,6 +22,12 @@ def LED1():
     LED1_time = request.form['LED1'];
     LED1_update(LED1_time);
     return json.dumps({'status':'OK','LED1_time':LED1_time});
+
+@app.route("/MOTOR0", methods=['POST'])
+def MOTOR0():
+    MOTOR0_steps = request.form['MOTOR0'];
+    MOTOR_update(MOTOR0_steps);
+    return json.dumps({'status':'OK','MOTOR0_steps':MOTOR0_steps});
 
 @app.route("/test")
 def test():

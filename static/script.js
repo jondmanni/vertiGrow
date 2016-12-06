@@ -63,3 +63,21 @@ $(function() {
         $(this).timedDisable($('#LED1_time').val());
     });
 });
+
+$(function() {
+    $('#MOTOR0').click(function() {
+        $.ajax({
+            //url: '/LEDS',
+            url: '/MOTOR0',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+        $(this).timedDisable($('#MOTOR0_steps').val());
+    });
+});

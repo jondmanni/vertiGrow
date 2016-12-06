@@ -10,16 +10,35 @@
   <script src="static/script.js"></script>
 {% endblock %}
 {% block content %}
-  <h1>Click the Button</h1>
-  <p class="important">
-    Enter parameters below:
   <form action="/" method="post" role="form">
-    LED 0:
-    <input name="LED0" id="LED0_time">
-    <button type="button" class="button" id="LED0">Update LED0</button>
-    <br>
-    LED 1:
-    <input name="LED1" id="LED1_time">
-    <button type="button" class="button" id="LED1">Update LED1</button>
+    <table>
+      <tr>
+        <td>
+        LED 0:
+        </td>
+        <td>
+        <input name="LED0" id="LED0_time" class="input_box">
+        <button type="button" class="button" id="LED0">Update LED0</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        LED 1:
+        </td>
+        <td>
+        <input name="LED1" id="LED1_time" class="input_box">
+        <button type="button" class="button" id="LED1">Update LED1</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          MOTOR 0:
+        </td>
+        <td>
+          <input name="MOTOR0" id="MOTOR0_steps" class="input_box">
+          <button type="button" class="button" id="MOTOR0">Update MOTOR0</button>
+        </td>
+      </tr>
+    </table>
   </form>
 {% endblock %}

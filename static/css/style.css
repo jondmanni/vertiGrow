@@ -1,6 +1,7 @@
 html, body {
 	overflow-x: hidden;
 	background-color: lightgrey;
+	font-family: "Arial";
 }
 h2, .full-width {
   position: relative; /* child absolute */
@@ -77,4 +78,12 @@ input {
     width: 10%;
 		font-size: 16px;
 		padding: 12px 12px 12px 12px;
+}
+
+table {
+	padding: 0px 0px 0px 0px;
+}
+td {
+	vertical-align: middle;
+	padding: 0px 10px 0px 10px;
 }
