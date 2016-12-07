@@ -56,7 +56,7 @@ def MOTOR_update(MOTOR_steps):
         if (MOTOR_steps != ''):
             f.write(lines[0])
             f.write(lines[1])
-            f.write(MOTOR_steps+',1,0,0,')
+            f.write(MOTOR_steps+',1,0,1,')
         else:
             f.write(lines[0])
             f.write(lines[1])

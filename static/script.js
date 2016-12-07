@@ -78,6 +78,6 @@ $(function() {
                 console.log(error);
             }
         });
-        $(this).timedDisable($('#MOTOR0_steps').val());
+        //$(this).timedDisable($('#MOTOR0_steps').val());
     });
 });
