@@ -3,7 +3,7 @@ var attempt = 5; // Variable to count number of attempts.
 function validate(){
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
-  if ( username == "vertiGrow" && password == "intothegarden20*"){
+  if ( username == "user" && password == "pass"){
     //alert ("Login successfully");
     // $.ajax({
     //     //url: '/LEDS',
