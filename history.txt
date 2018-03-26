@@ -1,9 +1,0 @@
-Implementation History
-
-3/7/17
-  Implemented Event Deletion, Updated Upcoming Event UI Format,
-  Created unique eventID generation and fixed list/dicts to work with it
-
-3/8/17
-  Updated Event Deletion from <a> to <div> and added small "x",
-  Updated "Add Event" CSS spacing, Added Custom Repeat Frequency
