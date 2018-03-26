@@ -65,3 +65,7 @@ def MOTOR_update(MOTOR_steps):
         return 1;
     except:
         return 0;
+
+#def send_home():
+    # This function will use the serial port to communicate with the
+    # Arduino to tell the motors to home the X-axis

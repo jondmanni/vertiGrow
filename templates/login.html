@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+  {{ super() }}
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui-1.12.1.custom/jquery-ui.css') }}"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <style type="text/css">
+    /*.important { color: #336699; }*/
+  </style>
+  <script src="static/jquery-3.1.1.min.js"> </script>
+  <script src="static/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+  <script src="static/login.js"></script>
+{% endblock %}
+{% block content %}
+<img src="https://preview.ibb.co/g3nsy5/bg.jpg" class="bg">
+<!--https://www.formget.com/javascript-login-form/-->
+  <div class="container">
+    <div class="main">
+      Login:<br>
+      <form id="form_id" method="post" name="myform">
+        <label>Username:</label>
+        <input type="text" name="username" id="username"/>
+        <label>Password:</label>
+        <input type="password" name="password" id="password"/><br>
+        <input type="button" value="Login" id="submit" onclick="validate()"/>
+      </form>
+    </div>
+  </div>
+{% endblock %}

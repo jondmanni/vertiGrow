@@ -1,7 +1,49 @@
 html, body {
 	overflow-x: hidden;
-	background-color: lightgrey;
+  background-color: rgba(0,0,0,0);
 	font-family: "Arial";
+}
+div.haze {
+	background-color: rgba(0,0,0,0.4);
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1024px;
+
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+	div.haze {
+		left: 50%;
+		margin-left: -512px;   /* 50% */
+	}
 }
 h2, .full-width {
   position: relative; /* child absolute */
@@ -21,7 +63,7 @@ h2, .full-width {
 	right: 0;
 	padding: 15px 15px 15px 15px;
 	color: white;
-	background-color: darkgrey;
+	background-color: rgba(121, 125, 127, 0.5);
 	font-family: "Arial";
 	font-size: 16px;
 }
@@ -33,13 +75,15 @@ h2, .full-width {
 	height: 20px;
 	color: white;
 	padding: 15px 15px 15px 15px;
-	background-color: darkgrey;
+	background-color: rgba(121, 125, 127, 0.5);
 	font-family: "Arial";
 	font-size: 16px;
 }
 #content{
-	padding-top: 3.25rem;
-	width: 50%;
+	padding-top: 3rem;
+	width: 100%;
+	border: 0;
+	background-color: transparent;
 }
 #form_content{
 	background-color: lightblue;
@@ -56,6 +100,37 @@ a {
   color: red;
   font-size: 16px;
 }
+a.delete {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 40px;
+	text-indent:-999px;
+	background: rgba(250, 219, 216, 0.9);
+	text-decoration: none;
+}
+div.delete {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 40px;
+	/*text-indent:-999px;*/
+	background: rgba(250, 219, 216, 0.9);
+	text-decoration: none;
+	padding: 5% 0;
+	text-align: center;
+	cursor: pointer;
+}
+	div.del_child {
+		font-family: Lucida Sans Unicode, Arial Unicode MS, Arial;
+		color: grey;
+		font-size: 64;
+		padding: 10% 0;
+	}
 .button {
     background-color: #5DADE2; /* Blue */
     border: none;
@@ -66,6 +141,7 @@ a {
     font-size: 12px;
     cursor: pointer;
     float: center;
+		border-radius:3px 3px 3px 3px;
 }
 .button:hover {
     background-color: #2E86C1;
@@ -74,10 +150,98 @@ a {
     background-color: #AED6F1;
 		cursor: default;
 }
+.turn_on {
+	background-color: green;
+	display:inline-block;
+}
+	.turn_on:hover{
+		background-color: lightgreen;
+	}
+.turn_off {
+	background-color: red;
+	display:inline-block;
+}
+	.turn_off:hover{
+		background-color: pink;
+	}
+.item {
+	border-width: 1px;
+	border-color: lightgrey;
+	border-right-style: solid;
+}
+.event_item {
+	border-width: 1px;
+	border-color: darkgrey;
+	border-right-style: solid;
+}
+.hidden {
+	display:none;
+}
+.lighting_hidden {
+	display:none;
+}
+.show {
+
+}
+.schedule {
+	float: right;
+	padding: 5px 5px 5px 5px;
+	vertical-align: top;
+}
+#upcoming {
+	float: left;
+}
+.top {
+	vertical-align: top;
+	padding: 5px 5px 5px 5px;
+}
+.title {
+	margin-bottom: 5px;
+}
+/* Styling for an event on the Schedule page */
+.event {
+	background: rgba(76, 175, 80, 0.2);
+	border: 1px solid green;
+	border-radius: 3px 3px 3px 3px;
+	padding: 10px 10px 10px 10px;
+	margin-bottom: 5px;
+	position: relative;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.event:hover div.delete {display: block;}
+
+.rounded {
+	background: #D6EAF8;
+	padding: 10px 10px 10px 10px;
+	border: 1px solid lightgrey;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	float: right;
+}
+.right {
+	float: right;
+}
+.middle {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.table {
+	display: table-row;
+	left: 0;
+	font-size: 12px;
+}
+.top_border {
+	border-width: 1px;
+	border-color: lightgrey;
+	border-top-style: solid;
+}
 input {
-    width: 10%;
-		font-size: 16px;
-		padding: 12px 12px 12px 12px;
+    width: 50%;
+		font-size: 12px;
+		padding: 5px 5px 5px 5px;
 }
 
 table {
@@ -87,3 +251,66 @@ td {
 	vertical-align: middle;
 	padding: 0px 10px 0px 10px;
 }
+
+/*--------------- Tabs ----------------*/
+/* http://inspirationalpixels.com/tutorials/creating-tabs-with-html-css-and-jquery */
+.tabs {
+	width:100%;
+	display:inline-block;
+}
+
+	/* Tab Links */
+	/* Clearfix */
+	.tab-links:after {
+		display: inline-block;
+		clear: both;
+		content:'';
+	}
+
+	.tab-links li {
+		margin:0px 5px;
+		float:right;
+		list-style:none;
+	}
+
+		.tab-links a{
+			padding:9px 15px;
+			display:inline-block;
+			border-radius:3px 3px 0px 0px;
+			background:#3498DB;
+			font-size:16px;
+			font-weight:600;
+			text-decoration:none;
+			color:#fff;
+			transition:all linear 0s;
+		}
+
+		.tab-links a:hover {
+			background:#AED6F1;
+			text-decoration:none;
+		}
+
+	li.active a, li.active a:hover {
+		background:#2E86C1;
+		color:#fff;
+		text-decoration:underline;
+	}
+
+	/* Content of Tabs */
+	.tab-content {
+		padding:15px;
+		border-radius:3px;
+		box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+		background: rgba(255, 255, 255, 0.90);
+		border-top-style: solid;
+		border-top-color:#2E86C1;
+		height: 500px;
+	}
+
+		.tab {
+			display:none;
+		}
+
+		.tab.active {
+			display:block;
+		}

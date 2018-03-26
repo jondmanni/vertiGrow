@@ -4,15 +4,15 @@
     {% block head %}
     <link rel="stylesheet" type="text/css" href="static/css/style.css" media="screen">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>{% block title %}{% endblock %} - ENGR-325</title>
+    <title>{% block title %}{% endblock %} - vertiGrow</title>
     {% endblock %}
   </head>
-  <body>
+  <body style="border: 0;">
     <div id="titlebar">vertiGrow</div>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
       {% block footer %}
-      &copy; Copyright 2016 by Team 20.
+      &copy; Copyright 2017 by Team 20.
       {% endblock %}
     </div>
   </body>

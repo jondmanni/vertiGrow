@@ -1,0 +1,21 @@
+--- Official Configuration File ---
+--- Do not change values in this file. ---
+
+- - - Water Configuration - - -
+Water Volume/Time (in Gallons/min):
+0.5
+
+- - - Robot Configuration - - -
+Robot Tray Locations (in steps; centered above tray, starting with Tray 1)
+30
+130
+230
+330
+430
+530
+
+Robot at Home
+0
+
+Robot Current Location
+50

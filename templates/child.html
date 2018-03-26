@@ -2,43 +2,208 @@
 {% block title %}Index{% endblock %}
 {% block head %}
   {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui-1.12.1.custom/jquery-ui.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='js/jquery-timepicker/jquery.timepicker.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <style type="text/css">
     .important { color: #336699; }
   </style>
   <script src="static/jquery-3.1.1.min.js"> </script>
+  <script src="static/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+  <script src="static/js/jquery-timepicker/jquery.timepicker.min.js"></script>
   <script src="static/script.js"></script>
 {% endblock %}
 {% block content %}
-  <form action="/" method="post" role="form">
-    <table>
-      <tr>
-        <td>
-        LED 0:
-        </td>
-        <td>
+<div class="haze"></div>
+<img src="https://preview.ibb.co/g3nsy5/bg.jpg" class="bg">
+<!-- src: http://inspirationalpixels.com/tutorials/creating-tabs-with-html-css-and-jquery -->
+<form action="/" method="post" role="form">
+  <div class="tabs">
+    <ul class="tab-links">
+      <!-- <li class="active"><a href="#tab1">Run</a></li> -->
+      <li><a href="#tab4">Calibrate</a></li>
+      <li><a href="#tab3">Test</a></li>
+      <li class="active"><a href="#tab2">Schedule</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <!-- <div id="tab1" class="tab active">
+        <p>This is the "Run" page.</p>
+        <p>You should see some interesting stuff here at some point</p>
         <input name="LED0" id="LED0_time" class="input_box">
         <button type="button" class="button" id="LED0">Update LED0</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-        LED 1:
-        </td>
-        <td>
         <input name="LED1" id="LED1_time" class="input_box">
         <button type="button" class="button" id="LED1">Update LED1</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          MOTOR 0:
-        </td>
-        <td>
-          <input name="MOTOR0" id="MOTOR0_steps" class="input_box">
-          <button type="button" class="button" id="MOTOR0">Update MOTOR0</button>
-        </td>
-      </tr>
-    </table>
-  </form>
+      </div> -->
+
+      <div id="tab2" class="tab active">
+        <!-- <table>
+          <tr>
+            <td class="top"> -->
+
+            <!-- </td>
+            <td class="top" width="35%"> -->
+            <div class="schedule">
+              <!-- Start Add Event box -->
+              <div class="rounded">
+                <div class="title">Add Event:</div>
+
+                <div class="table">Event Type:
+                <select class="right" name="add_event_select_type" id="add_event_select_type">
+                  <option value="water">Water</option>
+                  <option value="fertilize">Fertilize</option>
+                  <option value="lighting">Lighting</option>
+                </select></div>
+                <!-- <div class="table" id="add_event_water_quantity_div">
+                  Water Quantity:
+                  <select class="right" name="add_event_water_quantity">
+                    <option value="light">Light</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="heavy">Heavy</option>
+                  </select>
+                </div> -->
+                <div class="top_border"><div class="table">
+                  Date:
+                  <input class="right" name="add_event_start_date" id="start_datepicker">
+                </div>
+                <div id="add_event_end_date_div" class="hidden">
+                  End Date:
+                  <input class="right" name="add_event_end_date" id="end_datepicker">
+                </div></div>
+
+                <div class="top_border"><div class="table">
+                  Repeat:
+                  <input type="hidden" name="add_event_repeating" id="HIDDEN_repeating" />
+                  <input class="repeating" type="checkbox" default="off" id="repeating">
+                </div>
+                <div id="add_event_repeat_period_div" class="hidden">
+                  Repeat frequency:
+                  <select class="right" name="add_event_repeat_freq" id="add_event_repeat_freq">
+                    <option value="daily">Daily</option>
+                    <option value="every_other">Every-Other Day</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="custom">Custom...</option>
+                  </select>
+                </div>
+                <div id="add_event_repeat_custom_div" class="hidden">
+                  <table>
+                    <tr>
+                      <td>Su</td><td>M</td><td>T</td><td>W</td><td>Th</td><td>F</td><td>Sa</td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" id="sunday" default="off">
+                          <input type="hidden" name="sunday" id="HID_sunday" /></td>
+                      <td><input type="checkbox" id="monday" default="off">
+                          <input type="hidden" name="monday" id="HID_monday" /></td>
+                      <td><input type="checkbox" id="tuesday" default="off">
+                          <input type="hidden" name="tuesday" id="HID_tuesday" /></td>
+                      <td><input type="checkbox" id="wednesday" default="off">
+                          <input type="hidden" name="wednesday" id="HID_wednesday" /></td>
+                      <td><input type="checkbox" id="thursday" default="off">
+                          <input type="hidden" name="thursday" id="HID_thursday" /></td>
+                      <td><input type="checkbox" id="friday" default="off">
+                          <input type="hidden" name="friday" id="HID_friday" /></td>
+                      <td><input type="checkbox" id="saturday" default="off">
+                          <input type="hidden" name="saturday" id="HID_saturday" /></td>
+                    </tr>
+                  </table>
+                </div></div>
+                <div class="top_border"><div class="table">
+                  Time:
+                  <input class="timepicker right" name="add_event_time">
+                </div>
+                <div class="lighting_hidden" id="add_event_end_time">
+                  End Time:
+                  <input class="timepicker right" name="add_event_end_time">
+                </div></div>
+                <div class="top_border"><div class="table">
+                  <button type="button" class="button middle" id="add_event_submit">Add Event</button>
+                </div></div>
+              </div>
+              <!-- End Add Event box -->
+            </div>
+            <div class="schedule" id="upcoming">
+              <div class="title">
+                Upcoming events:
+              </div>
+              <div id="upcoming_events">
+
+              </div>
+            </div>
+            <!-- </td>
+          </tr>
+        </table> -->
+
+      </div>
+
+      <div id="tab3" class="tab">
+        <table>
+          <tr>
+            <td class="item">
+              Water:
+            </td>
+            <td>
+              <button type="button" class="button turn_on water_on" id="WATER_ON_OFF">Turn On</button>
+              <br>Fertilizer:
+              <input type="hidden" name="fert_box" id="HIDDEN_fertilize" />
+              <input class="fertilize" type="checkbox" default="off">
+            </td>
+          </tr>
+          <tr>
+            <td class="item">
+              Lighting:
+            </td>
+            <td>
+              <button type="button" class="button turn_on lights_on" id="LIGHTS_ON_OFF">Turn On</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="item">
+              Boom:
+            </td>
+            <td>
+              <button type="button" class="button home_x" id="HOME_X">Home Boom</button>
+              <!-- <select name="tray_select">
+                <option value="1">Tray 1</option>
+                <option value="2">Tray 2</option>
+                <option value="3">Tray 3</option>
+                <option value="4">Tray 4</option>
+                <option value="5">Tray 5</option>
+                <option value="6">Tray 6</option>
+              </select> -->
+              <button type="button" class="button" id="SET_X">Send Boom</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="tab4" class="tab">
+        <table>
+          <tr>
+            <td class="item">Water:</td>
+            <td>To calibrate the water flow rate for your system, find a container with
+              measurable volume (i.e. Pyrex container, 2 liter bottle, etc...). Enter the volume
+              you will be measuring below. Place the container under the nozzle, and press "Start Calibration."
+              <br>
+              <input name="calibrationVolume" class="input_box">
+              <select name="calibrationUnits">
+                <option value="L">Liters (L)</option>
+                <option value="Gal">Gallons (Gal)</option>
+                <option value="Oz">Fluid Ounces (oz)</option>
+                <option value="C">Cups (C)</option>
+              </select>
+              <br>
+              <button type="button" class="button" id="CALIBRATE">Start Calibration</button>
+              <br>
+              <div id="flowUpdate"></div>
+            </td>
+          </tr>
+        </table>
+        <!--<input name="MOTOR0" id="MOTOR0_steps" class="input_box">
+        <button type="button" class="button" id="MOTOR0">Update MOTOR0</button>
+        -->
+      </div>
+    </div>
+  </div>
+</form>
 {% endblock %}

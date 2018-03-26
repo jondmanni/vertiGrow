@@ -1,0 +1,24 @@
+Master To Do List
+
+User Interface - - - - - - - - - - - -
+1. Schedule | Don't allow users to add events before todays date and time
+  - Users can't enter date before today, but can still manually enter time
+    to be before the current time. Gets caught by server, but not client
+    (3/6/17)
+2. Schedule | Don't allow users to add repeating event without end date
+3. Schedule | Streamline "upcoming events" HTML updates in JS (use fcn?)
+4. Schedule | Implement repeat event planning
+
+
+Python Syntax, Commenting, and Verification - - - - - - -
+1. All | Implement parameter verification
+2. scheduler.py | create unique eventID with addEventWeb
+   - The ID will be tacked onto the list of params sent to the actual
+     event list and the event list used for creating web data. When
+     the web data is created, a hidden input box will be populated
+     with the unique eventID and can be sent back to a destructor
+     when the user wants to delete an event. Because we can't pass
+     an event object over the web to the destructor, this allows us
+     to do so.
+     Idea: the ID can simply be time datetime that the event was made.
+3. vertigrow.py | Remove event from all lists once event has been run
